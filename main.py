@@ -11,15 +11,16 @@ from forms import CreatePostForm, LoginForm, RegisterForm, CommentForm
 from functools import wraps
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import MetaData
+import os
 
 meta= MetaData()
 Base= declarative_base()
 db = SQLAlchemy()
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///posts.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ.get("osuwnue8247692r2u1hy32763")
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
