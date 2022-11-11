@@ -17,7 +17,7 @@ meta= MetaData()
 Base= declarative_base()
 db = SQLAlchemy()
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL","sqlite:/// blog.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 app.config['SECRET_KEY'] = os.environ.get("osuwnue8247692r2u1hy32763")
